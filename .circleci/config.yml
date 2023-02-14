@@ -25,7 +25,7 @@ jobs:
             python3 ./repo sync
             git clone https://github.com/dhruvtadvi/android_device_tecno_ke6 ./device/tecno/KE6
             . build/envsetup.sh
-            lunch arrow_KE6-vanilla
+            m bacon
 workflows:
   version: 2.1
   remote_builder:
