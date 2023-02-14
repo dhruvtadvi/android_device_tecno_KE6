@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/tecno/TECNO-KE6
+DEVICE_PATH := device/tecno/KE6
 
 # Architecture
 TARGET_ARCH := arm
@@ -20,7 +20,7 @@ TARGET_USES_64_BIT_BINDER := true
 OVERRIDE_TARGET_FLATTEN_APEX := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := TECNO-KE6
+TARGET_BOOTLOADER_BOARD_NAME := KE6
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -39,8 +39,8 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := TECNO-KE6_defconfig
-TARGET_KERNEL_SOURCE := kernel/tecno/TECNO-KE6
+TARGET_KERNEL_CONFIG := KE6_defconfig
+TARGET_KERNEL_SOURCE := kernel/tecno/KE6
 
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
@@ -93,4 +93,4 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/tecno/TECNO-KE6/BoardConfigVendor.mk
+include vendor/tecno/KE6/BoardConfigVendor.mk
