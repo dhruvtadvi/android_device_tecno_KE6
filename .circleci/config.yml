@@ -1,0 +1,34 @@
+version: 2.1
+jobs:
+  build:
+   docker:
+      - image: ghcr.io/sushrut1101/docker:arch
+   environment:
+      GIT_EMAIL: 'dhruvtadvi777@gmail.com'
+      GIT_NAME: 'dhruv'
+      VERSION: '3.0.0'
+      PBRP_MANIFEST: 'android-10.0'
+      VENDOR: 'tecno'
+      DEVICE: 'KE6'
+   steps:
+      - run:
+          name: "ARROW Builder"
+          command: |
+            mkdir arrow
+            cd arrow
+            curl https://storage.googleapis.com/git-repo-downloads/repo > ./repo
+            chmod a+x ./repo
+            git config --global user.email "${GIT_EMAIL}"
+            git config --global user.name "{GIT_NAME}"
+            git config --global color.ui false
+            python3 ./repo init --depth=1 -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.0
+            python3 ./repo sync
+            git clone https://github.com/dhruvtadvi/android_device_tecno_ke6 ./device/tecno/KE6
+            . build/envsetup.sh
+            lunch arrow_KE6-vanilla
+workflows:
+  version: 2.1
+  remote_builder:
+    jobs:
+      - build:
+          context: org-global
