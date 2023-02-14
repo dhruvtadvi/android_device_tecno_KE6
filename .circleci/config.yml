@@ -22,7 +22,7 @@ jobs:
             git config --global user.name "{GIT_NAME}"
             git config --global color.ui false
             python3 ./repo init --depth=1 -u https://github.com/ArrowOS/android_manifest.git -b arrow-13.0
-            python3 ./repo sync
+            python3 ./repo sync -j$(nproc --all) --fail-fast
             git clone https://github.com/dhruvtadvi/android_device_tecno_ke6 ./device/tecno/KE6
             . build/envsetup.sh
             m bacon
